@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Shopping Website</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        input, button {
+            margin: 10px;
+            padding: 10px;
+        }
+
+        .product {
+            border: 1px solid black;
+            padding: 15px;
+            margin: 15px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+<!-- LOGIN PAGE -->
+<div id="loginPage">
+    <h2>Login Page 🔐</h2>
+    <input type="text" id="username" placeholder="Username"><br>
+    <input type="password" id="password" placeholder="Password"><br>
+    <button onclick="login()">Login</button>
+</div>
+
+<!-- HOME / SHOPPING PAGE -->
+<div id="homePage" class="hidden">
+    <h1>Welcome to My Shop 🛒</h1>
+
+    <div class="product">
+        <h3>Shirt</h3>
+        <p>₹500</p>
+        <button onclick="buy()">Buy</button>
+    </div>
+
+    <div class="product">
+        <h3>Shoes</h3>
+        <p>₹1000</p>
+        <button onclick="buy()">Buy</button>
+    </div>
+
+    <div class="product">
+        <h3>Watch</h3>
+        <p>₹1500</p>
+        <button onclick="buy()">Buy</button>
+    </div>
+
+    <br><br>
+    <button onclick="logout()">Logout</button>
+</div>
+
+<script>
+function login() {
+    var user = document.getElementById("username").value;
+    var pass = document.getElementById("password").value;
+
+    if(user === "admin" && pass === "1234") {
+        document.getElementById("loginPage").classList.add("hidden");
+        document.getElementById("homePage").classList.remove("hidden");
+    } else {
+        alert("Invalid Login!");
+    }
+}
+
+function buy() {
+    alert("Order placed successfully!");
+}
+
+function logout() {
+    document.getElementById("homePage").classList.add("hidden");
+    document.getElementById("loginPage").classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>
